@@ -7,12 +7,16 @@ export const quotesSlice = createSlice({
   },
   reducers: {
     addQuote: (state, action) => {
-      const quoteObj = { quote: action.payload };
-      console.log(12, "newQuote", quoteObj);
+      const quoteObj = action.payload;
       state.quotes.push(quoteObj);
+      state.quotes.sort((a, b) => b.score - a.score);
+    },
+    deleteQuote: (state, action) => {
+      const quoteToBeDeleted = action.payload;
+      state.quotes = state.quotes.filter((qu) => qu.quote !== quoteToBeDeleted);
     },
   },
 });
 
-export const { addQuote } = quotesSlice.actions;
+export const { addQuote, deleteQuote } = quotesSlice.actions;
 export default quotesSlice.reducer;
