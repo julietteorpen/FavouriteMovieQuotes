@@ -1,5 +1,10 @@
 ### My Favourite Movie Quotes
 
+To run the project:
+Clone the repo
+Run 'npm install'
+Make sure you have a Anroid or iOS simulator installed and then run 'npx expo start --ios' or `npx expo start --android`
+
 Stack used in project:
 
 - `Expo` - for cross-platform compatability, eas of desployment via EAS and easily incoporated additional libraries
