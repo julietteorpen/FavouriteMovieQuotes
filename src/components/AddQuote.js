@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { View, TextInput, Button } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+
+import { addQuote } from "../slices/quotes";
 
 const AddQuote = ({ quotesList, setUpdateQuotes }) => {
+  const dispatch = useDispatch();
   const [quoteText, setQuoteText] = useState("");
-  console.log(8, "updateQuotes", quotesList);
 
   const handleAddQuote = () => {
     // Here you can implement the logic to add the quote to your data store
     console.log("Adding quote:", quoteText);
     // Reset the input field after adding the quote
-    const pushToQuoteArray = quotesList;
-    pushToQuoteArray.push(quoteText);
-    console.log(18, "pushToQuoteArray", pushToQuoteArray);
-    setUpdateQuotes(pushToQuoteArray);
+    dispatch(addQuote(quoteText));
     setQuoteText("");
   };
 
